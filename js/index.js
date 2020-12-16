@@ -1,6 +1,6 @@
-console.log("This is js file");
+// console.log("This is js file");
 
-//Constructor
+//Book class
 class Book {
     constructor(name, author, type) {
         this.name = name;
@@ -9,17 +9,17 @@ class Book {
     }
 }
 
-// Display constructor
+// Display class
 
 class Display {
     constructor() {
     }
-    //Add methods to display prototype
+    //Add method
     add(book) {
-        console.log("Adding to UI");
+//         console.log("Adding to UI");
         let tableBody = document.getElementById("tableBody");
         let num = tableBody.rows.length;
-        console.log(num);
+//         console.log(num);
         let uiString = `
                     <tr>
                     <th scope="row">${num + 1}</th>
@@ -29,10 +29,12 @@ class Display {
                     </tr>`;
         tableBody.innerHTML += uiString;
     }
+    // Clear the input
     clear() {
         let libraryForm = document.getElementById("libraryForm");
         libraryForm.reset();
     }
+    //Validate the book
     validate(book) {
         if (book.name.length < 3 || book.author.length < 3)
         {
@@ -42,6 +44,7 @@ class Display {
             return true;
         }
     }
+    //Show the message
     show(type, input) {
         let msg = document.getElementById("mssg");
         let result;
@@ -73,7 +76,7 @@ let libraryForm = document.getElementById("libraryForm");
 libraryForm.addEventListener("submit", libraryFormSubmit);
 
 function libraryFormSubmit(e) {
-    console.log("you have submitted library form");
+//     console.log("you have submitted library form");
     e.preventDefault();
 
     let name = document.getElementById("bookName").value;
@@ -99,7 +102,7 @@ function libraryFormSubmit(e) {
     }
     type = type.toUpperCase();
     let book = new Book(name, author, type);
-    console.log(book);
+//     console.log(book);
 
     let display = new Display();
     if (display.validate(book)) {
